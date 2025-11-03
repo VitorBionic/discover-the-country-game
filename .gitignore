@@ -1,0 +1,58 @@
+# =========================
+# Angular / Ionic defaults
+# =========================
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Build output
+www/
+dist/
+build/
+.platforms/
+plugins/
+coverage/
+tmp/
+temp/
+
+# Compiled TypeScript
+*.js
+*.js.map
+
+# Ionic Capacitor / Cordova
+android/
+ios/
+App/build/
+App/DerivedData/
+.idea/
+.vscode/
+.gradle/
+*.apk
+*.aab
+
+# Environment files (if you use API keys)
+src/environments/environment*.ts
+
+# macOS / Linux / Windows junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.swp
+*.swo
+
+# IDEs and editors
+.vscode/
+.idea/
+*.iml
+
+# Misc
+.sass-cache/
+connect.lock
+karma-*.log
+testem.log
+typings/
