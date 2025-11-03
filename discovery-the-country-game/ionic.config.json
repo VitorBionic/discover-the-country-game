@@ -1,0 +1,7 @@
+{
+  "name": "discovery-the-country-game",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
