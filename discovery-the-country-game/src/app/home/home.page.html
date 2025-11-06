@@ -1,19 +1,27 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-title>
-      Adivinhe o País 🌍
+      Adivinhe o País
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h2>Selecione a dificuldade:</h2>
+  <pre class="forca">
+  _______ 
+  |     | 
+  |     O 
+  |    /|\
+  |    / \
+ _|_      
+  </pre>
+  <h2><strong>Selecione a Dificuldade:</strong></h2>      
 
   <ion-select [(ngModel)]="dificulty">
-    <ion-select-option value="easy">Fázil</ion-select-option>
+    <ion-select-option value="easy">Fácil</ion-select-option>
     <ion-select-option value="medium">Médio</ion-select-option>
     <ion-select-option value="hard">Difícil</ion-select-option>
   </ion-select>
 
-  <ion-button expand="block" (click)="startGame()">Jogar</ion-button>
+  <ion-button shape="round" (click)="startGame()">Jogar</ion-button>
 </ion-content>
