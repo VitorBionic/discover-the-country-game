@@ -1,11 +1,23 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-title><strong>Jogo da Forca </strong>
-    <h1><strong>Dificuldade: {{ dificulty }}</strong></h1></ion-title>
+      <ion-title>
+        <strong>Jogo da Forca</strong>
+        <h1>
+          <strong>Dificuldade: {{ dificultyTag }}</strong>
+        </h1>
+      </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="game-container">
+    <pre class="forca">
+  _______ 
+  |     | 
+  |     O 
+  |    /|\
+  |    / \
+ _|_      
+  </pre>
   </div>
 </ion-content>
