@@ -1,23 +1,46 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-      <ion-title>
-        <strong>Jogo da Forca</strong>
-        <h1>
-          <strong>Dificuldade: {{ dificultyTag }}</strong>
-        </h1>
-      </ion-title>
+    <ion-title>
+      <strong>Jogo da Forca</strong>
+      <h1>
+        <strong>Dificuldade: {{ dificultyTag }}</strong>
+      </h1>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="game-container">
+
+
     <pre class="forca">
   _______ 
   |     | 
-  |     O 
-  |    /|\
-  |    / \
+  |     {{ boneco.cabeca }} 
+  |    {{ boneco.corpo }}{{ boneco.bracoEsq }}{{ boneco.bracoDir }}
+  |    {{ boneco.pernaEsq }} {{ boneco.pernaDir }}
  _|_      
-  </pre>
+    </pre>
+
+
+    <div class="palavra">
+      <span *ngFor="let letra of palavraOculta">{{ letra }}</span>
+    </div>
+
+   <ion-item>
+  <ion-input
+    type="text"
+    maxlength="1"
+    [(ngModel)]="letraDigitada"
+    name="letraDigitada"
+    placeholder="Digite uma letra"
+  ></ion-input>
+  <ion-button (click)="verificarLetra()">Tentar</ion-button>
+</ion-item>
+
+    <div class="erros">
+      <strong>Letras erradas:</strong> {{ letrasErradas.join(', ') }}
+    </div>
+
   </div>
 </ion-content>
