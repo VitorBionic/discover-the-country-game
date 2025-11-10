@@ -5,6 +5,7 @@ import { IonButton, IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/a
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { CountriesApi } from 'src/app/services/countries-api';
+import { DIFFICULTIES } from 'src/app/config/difficutlties.config';
 
 @Component({
   selector: 'app-game',
@@ -17,6 +18,11 @@ export class GamePage implements OnInit {
 
   dificulty!: string;
   country!: any;
+  dificultyTag!: string;
+  lifepoints!: number;
+  time!: number;
+  hints!: string[];
+  wordProgress!: string;
 
   constructor(private route: ActivatedRoute, private router: Router, private countriesApi: CountriesApi) { }
 
@@ -31,10 +37,13 @@ export class GamePage implements OnInit {
 
     this.dificulty = param
     this.country = await this.countriesApi.getRandomCountry();
-  }
+    const dificultySettings = DIFFICULTIES[this.dificulty as keyof typeof DIFFICULTIES]
+    this.dificultyTag = dificultySettings["tag"]
+    this.lifepoints = dificultySettings["lifepoints"]
+    this.time = dificultySettings["time"]
+    this.hints = [...dificultySettings["hints"]]
 
-  testFunc() {
-    console.log(this.country)
+    this.wordProgress = this.country.name.common.replace(/[^ ]/g, "*")
   }
 
 }
