@@ -11,35 +11,32 @@
 
 <ion-content [fullscreen]="true">
   <div class="game-container">
-
-
-    <pre class="forca">
+    <pre class="hangman">
   _______ 
   |     | 
-  |     {{ boneco.cabeca }} 
-  |    {{ boneco.corpo }}{{ boneco.bracoEsq }}{{ boneco.bracoDir }}
-  |    {{ boneco.pernaEsq }} {{ boneco.pernaDir }}
+ |     {{ dummy.head }}
+  |    {{ dummy.leftArm }}{{ dummy.body }}{{ dummy.rightArm }}
+  |    {{ dummy.leftLeg }} {{ dummy.rightLeg }}
  _|_      
     </pre>
-
-
-    <div class="palavra">
-      <span *ngFor="let letra of palavraOculta">{{ letra }}</span>
+    <div class="word">
+      @for (letter of wordProgress; track $index) {
+        <span>{{ letter }}</span>
+      }
     </div>
 
-   <ion-item>
-  <ion-input
-    type="text"
-    maxlength="1"
-    [(ngModel)]="letraDigitada"
-    name="letraDigitada"
-    placeholder="Digite uma letra"
-  ></ion-input>
-  <ion-button (click)="verificarLetra()">Tentar</ion-button>
-</ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        maxlength="1"
+        [(ngModel)]="typedLetter"
+        placeholder="Digite uma letra"
+      ></ion-input>
+      <ion-button (click)="verifyLetter()">Tentar</ion-button>
+    </ion-item>
 
-    <div class="erros">
-      <strong>Letras erradas:</strong> {{ letrasErradas.join(', ') }}
+    <div class="errors">
+      <strong>Letras erradas:</strong> {{ wrongLetters.join(', ') }}
     </div>
 
   </div>

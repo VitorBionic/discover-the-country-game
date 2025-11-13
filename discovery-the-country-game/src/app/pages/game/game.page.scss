@@ -55,11 +55,11 @@ ion-content::before {
   text-align: center;
 }
 
-h1 {
-  font-family: 𝐒𝐞𝐫𝐢𝐟 𝐁𝐨𝐥𝐝;
+h1{
+    font-family:𝐒𝐞𝐫𝐢𝐟 𝐁𝐨𝐥𝐝;
 }
 
-.forca {
+.hangman {
   align-items: center;
   align-self: center;
   text-align: center;
@@ -70,7 +70,7 @@ h1 {
   line-height: 1.2;
 }
 
-.palavra {
+.word {
   margin-top: 20px;
   font-size: 24px;
   letter-spacing: 10px;
@@ -78,7 +78,7 @@ h1 {
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
 }
 
-.erros {
+.errors {
   margin-top: 15px;
   color: #ff4d4d;
   font-weight: bold;
