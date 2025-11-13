@@ -38,12 +38,67 @@ ion-content::before {
   opacity: 0.1; 
   z-index: -1;
 }
+
 .game-container {
   position: relative;
   z-index: 1;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
 }
 
 h1{
     font-family:𝐒𝐞𝐫𝐢𝐟 𝐁𝐨𝐥𝐝;
+}
+
+.hangman {
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  font-family: monospace;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.word {
+  margin-top: 20px;
+  font-size: 24px;
+  letter-spacing: 10px;
+  color: #fff;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+
+.errors {
+  margin-top: 15px;
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+ion-item {
+  width: 80%;
+  max-width: 400px;
+  margin-top: 20px;
+  --background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+}
+
+ion-input {
+  color: #fff;
+  text-align: center;
+}
+
+ion-button {
+  margin-left: 10px;
+  --background: #8FBC8F;
+  --color: #262d22;
+  border-radius: 12px;
+  font-weight: bold;
 }
