@@ -6,13 +6,15 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { CountriesApi } from 'src/app/services/countries-api';
 import { DIFFICULTIES } from 'src/app/config/difficutlties.config';
+import { Highlight } from 'src/app/directives/highlight';
+import { TimeFormatPipe } from 'src/app/pipes/time-format-pipe';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.page.html',
   styleUrls: ['./game.page.scss'],
   standalone: true,
-  imports: [FormsModule, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonItem, IonInput]
+  imports: [Highlight, FormsModule, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonItem, IonInput, TimeFormatPipe]
 })
 export class GamePage implements OnInit {
 
