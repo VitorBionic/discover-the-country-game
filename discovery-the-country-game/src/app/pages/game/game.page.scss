@@ -105,3 +105,20 @@ ion-button {
   border-radius: 12px;
   font-weight: bold;
 }
+
+span#timeLeft {
+  font-size: 1.3rem;
+}
+
+div#game-result  {
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+ion-button#backButton {
+  --background: #1f1f1f;
+  --color: #ffffff;
+  --border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
