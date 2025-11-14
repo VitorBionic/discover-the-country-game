@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonButton, IonContent, IonHeader, IonItem, IonTitle, IonToolbar, IonInput } from '@ionic/angular/standalone';
@@ -20,7 +20,8 @@ export class GamePage implements OnInit {
   country!: any;
   dificultyTag!: string;
   lifepoints!: number;
-  time!: number;
+  timeLeft = signal(0);
+  private intervalId: any = null; 
   hints!: string[];
   word!: string;
   wordProgress!: string[];
@@ -53,11 +54,26 @@ export class GamePage implements OnInit {
     const dificultySettings = DIFFICULTIES[this.dificulty as keyof typeof DIFFICULTIES]
     this.dificultyTag = dificultySettings["tag"]
     this.lifepoints = dificultySettings["lifepoints"]
-    this.time = dificultySettings["time"]
+    this.timeLeft.set(dificultySettings["time"]);
     this.hints = [...dificultySettings["hints"]]
 
     this.word = this.country.name.common.toUpperCase();
     this.wordProgress = Array.from(this.word).map(l => l === ' ' ? ' ' : '_');
+
+    this.intervalId = setInterval(() => {
+      const current = this.timeLeft();
+      if (current > 0) {
+        this.timeLeft.set(current - 1);
+      } else {
+        this.gameEnded = true
+        setTimeout(() => alert(`💀 Você perdeu! O país era: ${this.word}`), 200)
+        clearInterval(this.intervalId)
+      }
+    }, 1000);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.intervalId);
   }
 
   verifyLetter() {
@@ -77,6 +93,7 @@ export class GamePage implements OnInit {
       if (!this.wordProgress.includes('_')) {
         this.gameEnded = true;
         setTimeout(() => alert('🎉 Parabéns! Você venceu!'), 200);
+        clearInterval(this.intervalId)
       }
 
     } else {
@@ -87,6 +104,7 @@ export class GamePage implements OnInit {
       if (this.lifepoints == 0) {
         this.gameEnded = true;
         setTimeout(() => alert(`💀 Você perdeu! O país era: ${this.word}`), 200);
+        clearInterval(this.intervalId)
       }
     }
 
@@ -134,5 +152,9 @@ export class GamePage implements OnInit {
 
   showHints() {
     
+  }
+
+  goToHome() {
+    this.router.navigate(['/home'])
   }
 }

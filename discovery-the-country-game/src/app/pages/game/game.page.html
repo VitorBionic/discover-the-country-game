@@ -5,7 +5,15 @@
       <h1>
         <strong>Dificuldade: {{ dificultyTag }}</strong>
       </h1>
+      <h2>
+        <strong>
+          Tempo Restante: 
+          <br /> 
+          <span id="time-left"> {{ timeLeft() }} </span>
+        </strong>
+      </h2>
     </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
@@ -39,5 +47,16 @@
       <strong>Letras erradas:</strong> {{ wrongLetters.join(', ') }}
     </div>
 
+    <div id="game-result">
+      @if (gameEnded && !this.wordProgress.includes('_')) {
+        <span style="color: green">Você ganhou, seu fodão safado!</span>
+      } @else if (gameEnded) {
+        <span style="color: red">Você perdeu, seu merdinha!</span>
+      }
+    </div>
+
+  <ion-button id="backButton" (click)="goToHome()">
+      Voltar
+  </ion-button>
   </div>
 </ion-content>
