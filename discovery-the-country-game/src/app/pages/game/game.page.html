@@ -3,13 +3,13 @@
     <ion-title>
       <strong>Jogo da Forca</strong>
       <h1>
-        <strong>Dificuldade: {{ dificultyTag }}</strong>
+        <strong>Dificuldade: {{ dificultyTag | uppercase }}</strong>
       </h1>
       <h2>
         <strong>
           Tempo Restante: 
           <br /> 
-          <span id="time-left"> {{ timeLeft() }} </span>
+          <span id="time-left"> {{ timeLeft() | timeFormat }} </span>
         </strong>
       </h2>
     </ion-title>
@@ -40,7 +40,7 @@
         [(ngModel)]="typedLetter"
         placeholder="Digite uma letra"
       ></ion-input>
-      <ion-button (click)="verifyLetter()">Tentar</ion-button>
+      <ion-button (click)="verifyLetter()" appHighlight>Tentar</ion-button>
     </ion-item>
 
     <div class="errors">
@@ -55,7 +55,7 @@
       }
     </div>
 
-  <ion-button id="backButton" (click)="goToHome()">
+  <ion-button id="backButton" (click)="goToHome()" appHighlight>
       Voltar
   </ion-button>
   </div>

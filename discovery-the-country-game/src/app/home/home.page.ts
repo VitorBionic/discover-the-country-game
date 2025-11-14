@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonSelect, IonSelectOption, IonButton } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Highlight } from 'src/app/directives/highlight'
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [FormsModule, IonHeader, IonToolbar, IonTitle, IonContent, IonSelect, IonSelectOption, IonButton],
+  imports: [Highlight, FormsModule, IonHeader, IonToolbar, IonTitle, IonContent, IonSelect, IonSelectOption, IonButton],
 })
 export class HomePage {
 
